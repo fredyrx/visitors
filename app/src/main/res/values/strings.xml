@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">My Customers</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_about">About Customer</string>
+    <string name="empresa_title">Empresa</string>
+    <string name="contact_title">Contacto</string>
+    <string name="address_title">Dirección</string>
+    <string name="btn_map_text">Ver Ubicación</string>
+    <string name="business_title">Empresa</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
