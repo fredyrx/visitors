@@ -9,9 +9,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.fredyrx.movil.mycustomers.R;
+import com.fredyrx.movil.mycustomers.VisitorsApp;
 import com.fredyrx.movil.mycustomers.adapter.ClientAdapter;
 import com.fredyrx.movil.mycustomers.data.dummy.ClientContent;
 import com.fredyrx.movil.mycustomers.model.Client;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClientActivity extends AppCompatActivity implements ClientAdapter.OnClientItemListener {
 
@@ -25,8 +29,13 @@ public class ClientActivity extends AppCompatActivity implements ClientAdapter.O
         setSupportActionBar(toolbar);
 
         rcvClients = (RecyclerView) findViewById(R.id.list);
-        rcvClients.setAdapter(new ClientAdapter(ClientContent.ITEMS, this));
-    }
+
+        List<Client> clients = new ArrayList<>();
+
+        ClientContent.createBasaClients();
+        clients = Client.listAll(Client.class);
+        rcvClients.setAdapter(new ClientAdapter(clients, this));
+        }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -53,7 +62,8 @@ public class ClientActivity extends AppCompatActivity implements ClientAdapter.O
     @Override
     public void onSelectedClient(Client client) {
         Intent intent = new Intent(this, AboutActivity.class);
-        intent.putExtra("client", client);
+        VisitorsApp.getInstance().setClient(client);
+        //intent.putExtra("client", client);
         startActivity(intent);
     }
 }

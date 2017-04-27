@@ -8,4 +8,6 @@
     <string name="btn_map_text">Ver Ubicación</string>
     <string name="business_title">Empresa</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_visits">VisitsActivity</string>
+    <string name="title_activity_visit_registration">VisitRegistrationActivity</string>
 </resources>

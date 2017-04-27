@@ -8,7 +8,7 @@ import java.util.Date;
  * Created by sistemas on 26/04/2017.
  */
 
-public class Visit extends SugarRecord<Visit>{
+public class Visit extends SugarRecord{
 
     Date visitDate;
     int duration;
@@ -21,4 +21,29 @@ public class Visit extends SugarRecord<Visit>{
         this.duration = duration;
         this.client = client;
     }
+
+    public Date getVisitDate() {
+        return visitDate;
+    }
+
+    public void setVisitDate(Date visitDate) {
+        this.visitDate = visitDate;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
 }

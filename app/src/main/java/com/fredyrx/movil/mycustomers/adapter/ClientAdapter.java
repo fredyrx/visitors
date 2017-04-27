@@ -33,8 +33,9 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.mImgIcon.setImageResource(lstClient.get(position).getIcon());
-        holder.mTxvClientName.setText(lstClient.get(position).getName());
+        Client cli = lstClient.get(position);
+        holder.mImgIcon.setImageResource(cli.icon);
+        holder.mTxvClientName.setText(cli.name);
     }
 
     @Override

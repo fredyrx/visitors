@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
 import com.fredyrx.movil.mycustomers.R;
+import com.fredyrx.movil.mycustomers.VisitorsApp;
 import com.fredyrx.movil.mycustomers.model.Client;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -30,7 +31,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Intent intent = getIntent();
 
         if (intent != null) {
-            client = (Client) intent.getSerializableExtra("client");
+            //client = (Client) intent.getSerializableExtra("client");
+            client = VisitorsApp.getInstance().getClient();
         }
 
         mapFragment.getMapAsync(this);
@@ -51,10 +53,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng location = new LatLng(client.getLocationMarker().getLatitude(), client.getLocationMarker().getLongitude());
+        LatLng location = new LatLng(client.locationMarker.latitude, client.locationMarker.longitude);
         mMap.addMarker(new MarkerOptions().position(location)
-                .title(client.getName())
-                .snippet(client.getAddress())
+                .title(client.name)
+                .snippet(client.address)
         ).showInfoWindow();
 
         CameraPosition cameraPosition = CameraPosition.builder()

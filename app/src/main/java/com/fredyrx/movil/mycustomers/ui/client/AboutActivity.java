@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.fredyrx.movil.mycustomers.R;
+import com.fredyrx.movil.mycustomers.VisitorsApp;
 import com.fredyrx.movil.mycustomers.model.Client;
 
 public class AboutActivity extends AppCompatActivity {
@@ -35,19 +36,18 @@ public class AboutActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         if (intent != null) {
-            client = (Client) intent.getSerializableExtra("client");
-
+            client = VisitorsApp.getInstance().getClient();
             if (client != null) {
 
-                mTxvBusinesstName.setText(client.getName());
-                mTxvContact.setText(client.getContact());
-                mTxvAddress.setText(client.getAddress());
+                mTxvBusinesstName.setText(client.name);
+                mTxvContact.setText(client.contact);
+                mTxvAddress.setText(client.address);
 
                 btnMap.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent mapIntent = new Intent(AboutActivity.this, MapsActivity.class);
-                        mapIntent.putExtra("client", client);
+                        VisitorsApp.getInstance().setClient(client);
                         startActivity(mapIntent);
                     }
                 });

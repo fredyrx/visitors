@@ -1,30 +1,34 @@
 package com.fredyrx.movil.mycustomers.model;
 
-import java.io.Serializable;
+import com.orm.SugarRecord;
 
-public class LocationMarker implements Serializable {
+public class LocationMarker extends SugarRecord {
 
-    private double latitude;
-    private double longitude;
+    public Double latitude;
+    public Double longitude;
 
-    public LocationMarker(double latitude, double longitude) {
+    public LocationMarker() {
+    }
+
+    public LocationMarker(Double latitude, Double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public double getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
+
 }
