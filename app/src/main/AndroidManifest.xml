@@ -48,14 +48,6 @@
         <activity
             android:name=".ui.client.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity
-            android:name=".ui.client.VisitsActivity"
-            android:label="@string/title_activity_visits"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ui.client.VisitRegistrationActivity"
-            android:label="@string/title_activity_visit_registration"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
