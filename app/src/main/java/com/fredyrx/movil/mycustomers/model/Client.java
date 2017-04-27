@@ -1,21 +1,33 @@
 package com.fredyrx.movil.mycustomers.model;
 
+import com.orm.SugarRecord;
+import com.orm.dsl.Ignore;
+
 import java.io.Serializable;
 
-public class Client implements Serializable{
+public class Client extends SugarRecord<Client> implements Serializable{
 
-    private String name;
-    private String contact;
-    private String address;
-    private int icon;
-    private LocationMarker locationMarker;
+    String name;
+    String contact;
+    String address;
+    int icon;
+    Double latitude;
+    Double longitude;
 
-    public Client(String name, String contact, String address, int icon, LocationMarker locationMarker) {
+
+    @Ignore
+    LocationMarker locationMarker;
+
+    public Client(){
+    }
+
+    public Client(String name, String contact, String address, int icon, Double latitude, Double longitude) {
         this.name = name;
         this.contact = contact;
         this.address = address;
         this.icon = icon;
-        this.locationMarker = locationMarker;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public String getName() {
@@ -51,6 +63,9 @@ public class Client implements Serializable{
     }
 
     public LocationMarker getLocationMarker() {
+        if (locationMarker == null){
+            this.locationMarker = new LocationMarker(latitude, longitude);
+        }
         return locationMarker;
     }
 
