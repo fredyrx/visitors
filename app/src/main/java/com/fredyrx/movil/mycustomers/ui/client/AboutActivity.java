@@ -79,11 +79,12 @@ public class AboutActivity extends AppCompatActivity{
 
                 // List visits
                 vistitsRecyclerView = (RecyclerView) findViewById(R.id.visitsRecyclerView);
-                visits = Visit.listAll(Visit.class);
+
+                client = VisitorsApp.getInstance().getClient();
+                visits = Visit.find(Visit.class,"client = ?", client.getId().toString());
+                //visits = Visit.listAll(Visit.class);
                 vistitsRecyclerView.setAdapter(new VisitAdapter(visits));
                 vistitsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-                Log.d("asd","asd");
 
             }
         }

@@ -39,7 +39,7 @@ public class VisitAdapter extends RecyclerView.Adapter<VisitAdapter.ViewHolder>{
         if (vis.getVisitDate() == null){
             holder.dateTextView.setText("No registered");
         }else {
-            holder.dateTextView.setText(vis.getVisitDate().toString());
+            holder.dateTextView.setText(vis.getDecoraterDate());
         }
     }
 

@@ -2,6 +2,8 @@ package com.fredyrx.movil.mycustomers.model;
 
 import com.orm.SugarRecord;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -18,7 +20,7 @@ public class Visit extends SugarRecord{
     public Visit(){}
 
 
-    public Visit(Client client, Date VisitDate){
+    public Visit(Client client, Date visitDate){
         this.visitDate = visitDate;
         this.client = client;
     }
@@ -59,5 +61,10 @@ public class Visit extends SugarRecord{
 
     public void setReason(String reason) {
         this.reason = reason;
+    }
+
+    public String  getDecoraterDate(){
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        return df.format(visitDate);
     }
 }

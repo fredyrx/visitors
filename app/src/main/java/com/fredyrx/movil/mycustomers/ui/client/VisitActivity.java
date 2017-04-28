@@ -16,7 +16,9 @@ import com.fredyrx.movil.mycustomers.VisitorsApp;
 import com.fredyrx.movil.mycustomers.model.Client;
 import com.fredyrx.movil.mycustomers.model.Visit;
 
+import java.util.Calendar;
 import java.util.Date;
+
 
 public class VisitActivity extends AppCompatActivity {
 
@@ -37,7 +39,7 @@ public class VisitActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         client = VisitorsApp.getInstance().getClient();
-        date = new Date();
+        date = Calendar.getInstance().getTime();
 
         visit = new Visit(client,date);
 
@@ -47,7 +49,7 @@ public class VisitActivity extends AppCompatActivity {
         reasonTextInput = (TextInputEditText) findViewById(R.id.reason_txt);
 
         clientTextInput.setText(client.getName().toString());
-        dateTextInput.setText(date.toString());
+        dateTextInput.setText(visit.getDecoraterDate());
 
 
 
