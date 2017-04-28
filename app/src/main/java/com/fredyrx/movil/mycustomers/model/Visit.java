@@ -13,8 +13,15 @@ public class Visit extends SugarRecord{
     Date visitDate;
     int duration;
     Client client;
+    String reason;
 
     public Visit(){}
+
+
+    public Visit(Client client, Date VisitDate){
+        this.visitDate = visitDate;
+        this.client = client;
+    }
 
     public Visit(Date VisitDate, int duration, Client client){
         this.visitDate = visitDate;
@@ -46,4 +53,11 @@ public class Visit extends SugarRecord{
         this.client = client;
     }
 
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
 }
