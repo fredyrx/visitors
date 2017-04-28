@@ -2,6 +2,8 @@ package com.fredyrx.movil.mycustomers.model;
 
 import com.orm.SugarRecord;
 
+import java.util.List;
+
 public class Client extends SugarRecord{
 
     public String name;
@@ -68,5 +70,9 @@ public class Client extends SugarRecord{
 
     public void setLocationMarker(LocationMarker locationMarker) {
         this.locationMarker = locationMarker;
+    }
+
+    public List<Visit> getVisits(){
+        return Visit.find(Visit.class,"client = ?", this.getId().toString());
     }
 }

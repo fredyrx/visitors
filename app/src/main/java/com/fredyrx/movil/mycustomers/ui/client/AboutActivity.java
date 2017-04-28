@@ -26,6 +26,7 @@ public class AboutActivity extends AppCompatActivity{
     TextView mTxvBusinesstName;
     TextView mTxvContact;
     TextView mTxvAddress;
+    TextView mTxvAlert;
     Button btnLocation;
     FloatingActionButton btnRegisterVisit;
 
@@ -46,8 +47,12 @@ public class AboutActivity extends AppCompatActivity{
         mTxvBusinesstName = (TextView) findViewById(R.id.txvBusiness);
         mTxvContact = (TextView) findViewById(R.id.txvContact);
         mTxvAddress = (TextView) findViewById(R.id.txvAddress);
+        mTxvAlert = (TextView) findViewById(R.id.alert_text_view);
         btnRegisterVisit = (FloatingActionButton) findViewById(R.id.fab);
         btnLocation = (Button) findViewById(R.id.btnLocation);
+
+        vistitsRecyclerView = (RecyclerView) findViewById(R.id.visitsRecyclerView);
+
 
         Intent intent = getIntent();
 
@@ -78,10 +83,12 @@ public class AboutActivity extends AppCompatActivity{
                 });
 
                 // List visits
-                vistitsRecyclerView = (RecyclerView) findViewById(R.id.visitsRecyclerView);
-
                 client = VisitorsApp.getInstance().getClient();
-                visits = Visit.find(Visit.class,"client = ?", client.getId().toString());
+                //visits = Visit.find(Visit.class,"client = ?", client.getId().toString());
+                visits = client.getVisits();
+                if (visits.size() == 0){
+                    mTxvAlert.setVisibility(View.VISIBLE);
+                }
                 //visits = Visit.listAll(Visit.class);
                 vistitsRecyclerView.setAdapter(new VisitAdapter(visits));
                 vistitsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
